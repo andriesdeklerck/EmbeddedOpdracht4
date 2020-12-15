@@ -1,0 +1,1 @@
+cmd_/home/pi/lesEmbedded2/Opdracht3/les/rpi-kmod-samples/kmod-clarg/clargmod.mod := { echo  /home/pi/lesEmbedded2/Opdracht3/les/rpi-kmod-samples/kmod-clarg/clargmod.o; echo; } > /home/pi/lesEmbedded2/Opdracht3/les/rpi-kmod-samples/kmod-clarg/clargmod.mod
