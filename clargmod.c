@@ -26,13 +26,17 @@
  * The module commandline arguments ...
  */
 static int speed = 5;
+static int ioEdge = 5;
 static int myintArray[2] = {-1, -1};
 static int arr_argc = 0;
+static int count = 0;
 
 module_param(speed, int, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 MODULE_PARM_DESC(speed, "An integer");
 module_param_array(myintArray, int, &arr_argc, 0000);
 MODULE_PARM_DESC(myintArray, "An array of integers");
+module_param(ioEdge, int, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+MODULE_PARM_DESC(ioEdge, "An integer");
 
 // #define LED1 4
 
@@ -51,6 +55,8 @@ static void blink_timer_func(struct timer_list *t)
 	led1 = !led1;
 	gpio_set_value(myintArray[1], led2);
 	led2 = !led2;
+	count = count + 1;
+	printk(KERN_INFO "count is: %d\n", count);
 	/* schedule next execution */
 	//blink_timer.data = !data;						// makes the LED toggle
 	blink_timer.expires = jiffies + (speed*HZ); // 1 sec.
@@ -66,6 +72,7 @@ static int __init clargmod_init(void)
 	int ret[2] = {0,0};
 
 	printk(KERN_INFO "speed is an integer: %d\n", speed);
+	printk(KERN_INFO "ioEdge is: %d\n", ioEdge);
 
 	for (i = 0; i < (sizeof myintArray / sizeof(int)); i++)
 	{
