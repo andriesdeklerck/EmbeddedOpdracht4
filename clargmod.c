@@ -56,7 +56,14 @@ static void blink_timer_func(struct timer_list *t)
 	gpio_set_value(myintArray[1], led2);
 	led2 = !led2;
 	count = count + 1;
-	printk(KERN_INFO "count is: %d\n", count);
+	if (ioEdge == myintArray[0])
+	{
+		printk(KERN_INFO "count %d is: %d\n", myintArray[0], count);
+	}
+	if (ioEdge == myintArray[1])
+	{
+		printk(KERN_INFO "count %d is: %d\n", myintArray[1], count);
+	}
 	/* schedule next execution */
 	//blink_timer.data = !data;						// makes the LED toggle
 	blink_timer.expires = jiffies + (speed*HZ); // 1 sec.
