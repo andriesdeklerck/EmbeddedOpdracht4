@@ -829,6 +829,25 @@ deps_/home/pi/lesEmbedded2/Opdracht3/les/rpi-kmod-samples/kmod-clarg/clargmod.o 
   include/linux/pinctrl/machine.h \
   include/linux/gpio/consumer.h \
     $(wildcard include/config/gpio/sysfs.h) \
+  include/linux/interrupt.h \
+    $(wildcard include/config/irq/forced/threading.h) \
+    $(wildcard include/config/generic/irq/probe.h) \
+    $(wildcard include/config/irq/timings.h) \
+  include/linux/hardirq.h \
+  include/linux/ftrace_irq.h \
+    $(wildcard include/config/ftrace/nmi/enter.h) \
+    $(wildcard include/config/hwlat/tracer.h) \
+  include/linux/vtime.h \
+    $(wildcard include/config/virt/cpu/accounting.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
+  include/linux/context_tracking_state.h \
+    $(wildcard include/config/context/tracking.h) \
+  arch/arm/include/asm/hardirq.h \
+  include/linux/irq_cpustat.h \
+  arch/arm/include/asm/sections.h \
+  include/asm-generic/sections.h \
+  include/linux/delay.h \
+  arch/arm/include/asm/delay.h \
 
 /home/pi/lesEmbedded2/Opdracht3/les/rpi-kmod-samples/kmod-clarg/clargmod.o: $(deps_/home/pi/lesEmbedded2/Opdracht3/les/rpi-kmod-samples/kmod-clarg/clargmod.o)
 
